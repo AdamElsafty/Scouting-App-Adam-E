@@ -143,7 +143,7 @@ def create_app():
     """Create and display the main application window."""
     root = tk.Tk()
     root.title("FRC Scouting App")
-    root.geometry("500x800")  # Adjusted window size for better layout
+    root.geometry("600x800")  # Increased height to fit buttons side by side
     root.resizable(False, False)
     root.config(bg="black")  # Set background color to black
 
@@ -226,8 +226,18 @@ def create_app():
     qr_button.grid(row=1, column=0, padx=10, pady=10)
     export_button.grid(row=1, column=1, padx=10)
 
-    root.mainloop()
+    # Add Previous and Next page buttons
+    navigation_buttons_frame = tk.Frame(root, bg="black")
+    navigation_buttons_frame.pack(pady=10)
+    
+    previous_button = tk.Button(navigation_buttons_frame, text="Previous Page", width=15, bg="gray", fg="black")
+    next_button = tk.Button(navigation_buttons_frame, text="Next Page", width=15, bg="gray", fg="black")
 
+    previous_button.grid(row=0, column=0, padx=10, pady=10)
+    next_button.grid(row=0, column=1, padx=10, pady=10)
+
+    root.mainloop()
+    
 # Initialize DB
 initialize_db()
 
